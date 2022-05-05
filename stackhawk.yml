@@ -1,0 +1,20 @@
+# -- stackhawk configuration for vulnerable_graphql --
+app:
+  # -- An applicationId obtained from the StackHawk platform. --
+  applicationId: 0aca6aa9-1612-4f7b-9c6d-0d2698b98f64 # (required)
+  # -- The environment for the applicationId defined in the StackHawk platform. --
+  env: Development # (required)
+  # -- The url of your application to scan --
+  host: http://43000 # (required)
+
+
+# -- Customized Configuration for GraphQL/SOAP/OpenAPI, add here --
+  graphqlConf: 
+    enabled: true
+    schemaPath: /graphql # OR...
+#     filePath: introspectionSchema.json
+    operation: ALL # Types: ALL, QUERY, MUTATION
+    requestMethod: POST # Types: POST, GET
+  autoPolicy: true
+  autoInputVectors: true
+  # Configuration Docs: https://docs.stackhawk.com/hawkscan/configuration/
